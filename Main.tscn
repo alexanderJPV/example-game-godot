@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://UFO.gd" type="Script" id=1]
+[ext_resource path="res://skull_in_a_ufo_spacecraft.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
+
+[node name="Main" type="Node"]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2( 512, 544 )
+scale = Vector2( 16, 0.5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Color" type="ColorRect" parent="Floor"]
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+color = Color( 0.234754, 0.554688, 0.145172, 1 )
+
+[node name="Collision" type="CollisionShape2D" parent="Floor"]
+shape = SubResource( 1 )
+
+[node name="Floor2" type="StaticBody2D" parent="."]
+position = Vector2( -256, 416 )
+scale = Vector2( 16, 0.5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Color" type="ColorRect" parent="Floor2"]
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+color = Color( 0.234754, 0.554688, 0.145172, 1 )
+
+[node name="Collision" type="CollisionShape2D" parent="Floor2"]
+shape = SubResource( 1 )
+
+[node name="UFO" type="RigidBody2D" parent="."]
+position = Vector2( 545.298, 134.052 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Imagen" type="Sprite" parent="UFO"]
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UFO"]
+polygon = PoolVector2Array( -64, 16, -44.5797, 7.0642, -35.3371, -58.5147, 38.6042, -58.5147, 46.5265, 7.94446, 95.8207, 37.8731, 0.313202, 65.1609, -95.1943, 36.9928 )
